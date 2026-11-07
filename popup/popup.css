@@ -1,0 +1,36 @@
+:root {
+  --bg: #ffffff;
+  --fg: #202124;
+  --muted: #5f6368;
+  --line: #e0e3e7;
+  --accent: #d93025;
+  --card: #f6f7f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #202124; --fg: #e8eaed; --muted: #9aa0a6; --line: #3c4043; --card: #2b2c2f; }
+}
+* { box-sizing: border-box; }
+body { width: 320px; margin: 0; padding: 14px; font: 13px/1.4 system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+h1 { font-size: 16px; margin: 0; }
+h2 { font-size: 12px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.sub { margin: 0; color: var(--muted); font-size: 12px; }
+.stat { background: var(--card); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 10px; }
+.num { font-size: 32px; font-weight: 700; color: var(--accent); }
+.lbl { color: var(--muted); font-size: 12px; }
+.row { display: flex; justify-content: space-between; align-items: center; padding: 9px 2px; border-bottom: 1px solid var(--line); cursor: pointer; }
+.row input { width: 18px; height: 18px; accent-color: var(--accent); }
+.hint { color: var(--muted); font-size: 12px; min-height: 16px; margin: 6px 0 0; }
+.shields { margin-top: 12px; }
+.shields .row { padding: 7px 2px; }
+.dns { margin-top: 12px; }
+button { width: 100%; margin-top: 6px; padding: 8px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; font: inherit; cursor: pointer; }
+select { width: 100%; margin-top: 6px; padding: 7px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); font: inherit; }
+button.secondary { background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+#dnsResult { word-break: break-word; }
+footer { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+dl { display: grid; grid-template-columns: 70px 1fr; gap: 3px 8px; margin: 0; font-size: 12px; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }

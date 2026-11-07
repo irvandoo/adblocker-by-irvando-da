@@ -1,0 +1,31 @@
+/* AdBlocker by Irvando.d.a — YouTube cosmetic filters
+   Author: Irvando Demas Arifiandani (irvando.d.a) — https://irvandoda.web.id */
+html:not([data-irv-off]) :is(
+  #masthead-ad,
+  #player-ads,
+  #panels ytd-ads-engagement-panel-content-renderer,
+  .ytp-ad-module,
+  .ytp-ad-overlay-container,
+  .ytp-ad-overlay-slot,
+  .ytp-ad-text-overlay,
+  .ytp-paid-content-overlay,
+  .video-ads,
+  ytd-ad-slot-renderer,
+  ytd-in-feed-ad-layout-renderer,
+  ytd-display-ad-renderer,
+  ytd-promoted-sparkles-web-renderer,
+  ytd-promoted-sparkles-text-search-renderer,
+  ytd-promoted-video-renderer,
+  ytd-compact-promoted-video-renderer,
+  ytd-search-pyv-renderer,
+  ytd-banner-promo-renderer,
+  ytd-statement-banner-renderer,
+  ytd-primetime-promo-renderer,
+  ytd-action-companion-ad-renderer,
+  ytd-companion-slot-renderer,
+  ytd-rich-item-renderer:has(> #content > ytd-ad-slot-renderer),
+  ytd-enforcement-message-view-model,
+  tp-yt-paper-dialog:has(ytd-enforcement-message-view-model)
+) {
+  display: none !important;
+}

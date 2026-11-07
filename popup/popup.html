@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdBlocker by Irvando.d.a</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="36" height="36">
+    <div>
+      <h1>AdBlocker by Irvando.d.a</h1>
+      <p class="sub">YouTube &amp; Web — browsing aman</p>
+    </div>
+  </header>
+
+  <section class="stat">
+    <div class="num" id="count">0</div>
+    <div class="lbl">iklan/jebakan diblokir di tab ini</div>
+  </section>
+
+  <label class="row">
+    <span>Aktifkan blokir (semua situs)</span>
+    <input type="checkbox" id="global">
+  </label>
+  <label class="row">
+    <span>Aktif di <b id="host">—</b></span>
+    <input type="checkbox" id="site">
+  </label>
+  <p class="hint" id="hint"></p>
+
+  <section class="shields">
+    <h2>Shields (seperti Brave)</h2>
+    <label class="row"><span>Blokir script berbahaya (miner/malware)</span><input type="checkbox" data-opt="blockThreats"></label>
+    <label class="row"><span>Blokir tracker &amp; hapus parameter pelacak</span><input type="checkbox" data-opt="blockTrackers"></label>
+    <label class="row"><span>Anti-fingerprint (canvas/audio/WebGL)</span><input type="checkbox" data-opt="antiFingerprint"></label>
+    <label class="row"><span>Lindungi IP (WebRTC) &amp; hyperlink audit</span><input type="checkbox" data-opt="protectIP"></label>
+    <label class="row"><span>Blokir cookie pihak ketiga</span><input type="checkbox" data-opt="blockThirdPartyCookies"></label>
+    <button id="cleanSite" class="secondary">Bersihkan jejak situs ini</button>
+    <button id="cleanAll" class="secondary">Bersihkan jejak 1 jam terakhir (semua situs)</button>
+    <p class="hint" id="cleanResult"></p>
+  </section>
+
+  <section class="dns">
+    <h2>Secure DNS (Cloudflare / Google)</h2>
+    <p class="hint">Chrome tidak mengizinkan ekstensi mengubah DNS. Aktifkan Secure DNS lewat pengaturan Chrome:</p>
+    <select id="dnsProvider">
+      <option value="cloudflare">Cloudflare (1.1.1.1)</option>
+      <option value="google">Google (8.8.8.8)</option>
+    </select>
+    <button id="dnsEnable">Aktifkan Secure DNS</button>
+    <button id="dnsTest" class="secondary">Tes situs ini via Cloudflare &amp; Google</button>
+    <p class="hint" id="dnsResult"></p>
+  </section>
+
+  <footer>
+    <h2>Credits</h2>
+    <dl>
+      <dt>Nama</dt><dd>Irvando Demas Arifiandani</dd>
+      <dt>Nickname</dt><dd>irvando.d.a</dd>
+      <dt>Email</dt><dd><a href="mailto:irvando.d.a@gmail.com" target="_blank">irvando.d.a@gmail.com</a></dd>
+      <dt>Web</dt><dd><a href="https://irvandoda.web.id" target="_blank" rel="noopener">irvandoda.web.id</a></dd>
+    </dl>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

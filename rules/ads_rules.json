@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "doubleclick.net", "googlesyndication.com", "googleadservices.com",
+        "adservice.google.com", "googletagservices.com", "2mdn.net",
+        "adnxs.com", "taboola.com", "outbrain.com", "criteo.com", "criteo.net",
+        "rubiconproject.com", "pubmatic.com", "openx.net", "adsrvr.org",
+        "amazon-adsystem.com", "moatads.com", "adform.net", "smartadserver.com",
+        "casalemedia.com", "advertising.com", "mgid.com", "revcontent.com",
+        "media.net", "yieldmo.com", "teads.tv", "adsafeprotected.com",
+        "serving-sys.com", "scorecardresearch.com"
+      ],
+      "resourceTypes": ["script", "sub_frame", "image", "xmlhttprequest", "ping", "media", "object", "websocket", "other"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "popads.net", "popcash.net", "propellerads.com", "propellerclick.com",
+        "exoclick.com", "adsterra.com", "juicyads.com", "trafficjunky.com",
+        "clickadu.com", "hilltopads.net", "onclickads.net", "adcash.com",
+        "revenuehits.com", "zeroredirect1.com", "bidvertiser.com", "popunderjs.com"
+      ],
+      "resourceTypes": ["main_frame", "script", "sub_frame", "image", "xmlhttprequest", "ping", "media", "object", "websocket", "other"]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "||youtube.com/pagead/", "resourceTypes": ["script", "sub_frame", "image", "xmlhttprequest", "ping", "media", "other"] }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "||youtube.com/api/stats/ads", "resourceTypes": ["xmlhttprequest", "ping", "image", "other"] }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "||youtube.com/ptracking", "resourceTypes": ["xmlhttprequest", "ping", "image", "other"] }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "||youtube.com/get_midroll_", "resourceTypes": ["xmlhttprequest", "other"] }
+  }
+]

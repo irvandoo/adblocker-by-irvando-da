@@ -1,0 +1,75 @@
+{
+  "manifest_version": 3,
+  "name": "AdBlocker by Irvando.d.a - Youtube & Web",
+  "version": "1.0.0",
+  "description": "Blokir iklan YouTube, pop-up, pop-under & click-hijack agar browsing aman. Dibuat oleh Irvando Demas Arifiandani (irvando.d.a) — irvandoda.web.id",
+  "author": { "email": "irvando.d.a@gmail.com" },
+  "homepage_url": "https://irvandoda.web.id",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs",
+    "privacy",
+    "browsingData"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "AdBlocker by Irvando.d.a",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "ads", "enabled": true, "path": "rules/ads_rules.json" },
+      { "id": "security", "enabled": true, "path": "rules/security_rules.json" },
+      { "id": "privacy", "enabled": true, "path": "rules/privacy_rules.json" }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/shields_main.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/generic_main.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/generic.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*", "*://*.youtube-nocookie.com/*"],
+      "js": ["content/youtube_main.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["*://*.youtube.com/*", "*://*.youtube-nocookie.com/*"],
+      "js": ["content/youtube.js"],
+      "css": ["content/youtube.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}

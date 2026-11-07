@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "requestDomains": [
+        "coinhive.com", "coin-hive.com", "authedmine.com", "cryptoloot.pro",
+        "crypto-loot.com", "coinimp.com", "jsecoin.com", "webminepool.com",
+        "webmine.pro", "minero.cc", "minemytraffic.com", "coinblind.com",
+        "monerominer.rocks", "hashforcash.us", "ppoi.org", "2giga.link",
+        "miner.pr0gramm.com", "papoto.com"
+      ],
+      "resourceTypes": ["main_frame", "script", "sub_frame", "image", "xmlhttprequest", "ping", "media", "object", "websocket", "other"]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "coinhive.min.js", "resourceTypes": ["script", "sub_frame", "xmlhttprequest", "other"] }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "cryptonight.wasm", "resourceTypes": ["script", "xmlhttprequest", "other"] }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "deepminer", "resourceTypes": ["script", "xmlhttprequest", "other"] }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "/cryptonight.", "resourceTypes": ["script", "xmlhttprequest", "other"] }
+  }
+]
