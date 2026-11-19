@@ -52,6 +52,10 @@
 
   window.open = function (url, ...rest) {
     if (off()) return realOpen.call(this, url, ...rest);
+    // Navigation of an existing/named frame (_self, _top, _parent, frame name) is not a popup;
+    // leave it untouched so we never interfere with cross-origin frame navigation.
+    const tgt = String(rest[0] == null ? '' : rest[0]).toLowerCase();
+    if (tgt && tgt !== '_blank') return realOpen.call(this, url, ...rest);
     const u = String(url == null ? '' : url);
     const active = navigator.userActivation ? navigator.userActivation.isActive : true;
     let host = '';
