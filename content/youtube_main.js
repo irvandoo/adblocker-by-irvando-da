@@ -7,7 +7,7 @@
   const root = document.documentElement;
   const off = () => root.hasAttribute('data-irv-off');
 
-  const PLAYER_AD_KEYS = ['adPlacements', 'playerAds', 'adSlots', 'adBreakHeartbeatParams'];
+  const PLAYER_AD_KEYS = ['adPlacements', 'playerAds', 'adSlots'];
   const AD_ITEM_KEYS = [
     'adSlotRenderer',
     'promotedSponsorRenderer',
@@ -99,11 +99,12 @@
       if (!API.test(url)) return res;
       const data = await res.clone().json();
       const hadAds = data && ('adPlacements' in data || 'playerAds' in data || 'adSlots' in data);
+      if (!hadAds) return res; // untouched: hand back the original response
       strip(data);
       const headers = new Headers(res.headers);
       headers.delete('content-length');
       const out = new Response(JSON.stringify(data), { status: res.status, statusText: res.statusText, headers });
-      if (hadAds) document.dispatchEvent(new CustomEvent('irv-yt-stripped'));
+      document.dispatchEvent(new CustomEvent('irv-yt-stripped'));
       return out;
     } catch (_) {
       return res;

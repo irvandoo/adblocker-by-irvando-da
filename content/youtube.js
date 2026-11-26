@@ -20,6 +20,7 @@
   let recoveredFor = '';
   let stallSince = 0;
   let adEndedAt = 0;
+  let loadStallSince = 0;
 
   // Last-resort: reload the current video through the player API. The InnerTube
   // response is stripped of ads (youtube_main.js), so the reload starts clean.
@@ -110,6 +111,16 @@
         }
       } else {
         stallSince = 0;
+      }
+      // Stuck on load (e.g. after refresh): video never gets playable data.
+      if (video && !adEndedAt && location.pathname === '/watch' && !video.ended && video.readyState < 2 && !video.seeking) {
+        if (!loadStallSince) loadStallSince = Date.now();
+        else if (Date.now() - loadStallSince > 7000) {
+          loadStallSince = Date.now() + 1e9; // one attempt per page
+          recover(player, video);
+        }
+      } else if (video && video.readyState >= 2) {
+        loadStallSince = 0;
       }
     }
   }

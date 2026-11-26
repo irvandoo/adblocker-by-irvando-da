@@ -36,9 +36,13 @@
       { "id": "privacy", "enabled": true, "path": "rules/privacy_rules.json" }
     ]
   },
+  "web_accessible_resources": [
+    { "resources": ["rules/noop/ad_status.js"], "matches": ["*://*.youtube.com/*"] }
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "exclude_matches": ["*://*.youtube.com/*", "*://*.youtube-nocookie.com/*", "*://*.googlevideo.com/*"],
       "js": ["content/shields_main.js"],
       "run_at": "document_start",
       "all_frames": true,
